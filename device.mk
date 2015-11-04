@@ -387,6 +387,10 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.user:root/init.angler.diag.rc
 endif
 
+# old-apns.conf
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/old-apns-conf.xml:system/etc/old-apns-conf.xml
+
 # Incoming number (b/23529711)
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.redir_party_num=0
