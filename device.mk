@@ -203,10 +203,12 @@ PRODUCT_PACKAGES += \
     libmmjpeg_interface \
     libqomx_core \
     mm-qcamera-app \
-    SnapdragonCamera
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.HAL3.enabled=1 \
+    Snap
+
+PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.cpp.duplication=false
 
 # GPS
