@@ -35,7 +35,7 @@ ENABLE_CPUSETS := true
 BLISSIFY := true
 BLISS_O3 := true
 BLISS_GRAPHITE := true
-#BLISS_KRAIT := true		
+BLISS_KRAIT := true		
 BLISS_PIPE := true
 #BLISS_STRICT := false
 #TARGET_TC_ROM := 4.9
@@ -74,7 +74,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/huawei/angler/bluetooth
 
 BOARD_USES_SECURE_SERVICES := true
 
-#BOARD_NEEDS_VENDORIMAGE_SYMLINK := true
+BOARD_NEEDS_VENDORIMAGE_SYMLINK := true
 
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
 
@@ -121,7 +121,7 @@ BOARD_HAL_STATIC_LIBRARIES := libdumpstate.angler
 
 TARGET_RECOVERY_FSTAB = device/huawei/angler/fstab.angler
 # write vendor modules to system
-TARGET_COPY_OUT_VENDOR := vendor
+TARGET_COPY_OUT_VENDOR := system
 TARGET_RELEASETOOLS_EXTENSIONS := device/huawei/angler
 
 BOARD_SEPOLICY_DIRS += \
