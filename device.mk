@@ -18,6 +18,8 @@
 # are also specific to angler devices
 #
 # Everything in this directory will become public
+#V4A
+BLISS_AUDIO_MOD := viper
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.rc:root/init.angler.rc \
