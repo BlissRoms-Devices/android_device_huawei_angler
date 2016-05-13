@@ -7,7 +7,7 @@
  },
  {
    "remote": "github",
-   "repository":   "BenzoRom64/vendor/huawei/angler",
+   "repository":   "BenzoRom64/vendor_huawei_angler",
    "target_path": "vendor/huawei",
    "revision": "marshmallow"
  }
