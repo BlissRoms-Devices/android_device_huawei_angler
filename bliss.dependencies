@@ -1,14 +1,14 @@
 [
  {
-   "remote": "cm",
-   "repository": "android_kernel_huawei_angler",
+   "repository": "BenzoRom64/kernel/huawei/angler",
+   "remote": "github",
    "target_path": "kernel/huawei/angler",
-   "revision": "cm-13.0"
+   "revision": "marshmallow"
  },
  {
    "remote": "github",
-   "repository": "TheMuppets/proprietary_vendor_huawei",
+   "repository":   " BenzoRom64/vendor_huawei_angler",
    "target_path": "vendor/huawei",
-   "revision": "cm-13.0"
+   "revision": "marshmallow"
  }
 ]
