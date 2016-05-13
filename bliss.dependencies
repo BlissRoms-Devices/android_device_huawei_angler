@@ -1,7 +1,7 @@
 [
  {
-   "repository": "BenzoRom64/kernel/huawei/angler",
-   "remote": "github",
+   "remote":   "github",
+   "repository": "BenzoRom64/kernel_huawei_angler",
    "target_path": "kernel/huawei/angler",
    "revision": "marshmallow"
  },
