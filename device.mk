@@ -19,7 +19,6 @@
 #
 # Everything in this directory will become public
 #V4A
-BLISS_AUDIO_MOD := viper
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.rc:root/init.angler.rc \
@@ -416,5 +415,3 @@ $(call inherit-product-if-exists, vendor/qcom/gpu/msm8994/msm8994-gpu-vendor.mk)
 # copy wlan firmware
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358/device-bcm.mk)
 
-# don't check verity on vendor partition as we don't compile it with the boot and system image
-# PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/soc.0/f9824900.sdhci/by-name/vendor
