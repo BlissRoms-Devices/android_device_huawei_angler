@@ -9,6 +9,13 @@
    "remote": "github",
    "repository":   "BlissRoms-Kernels/vendor_huawei_angler",
    "target_path": "vendor/huawei",
-   "revision": "mm6.0"
- }
+	   "revision": "mm6.0"
+ },
+ {   
+    "remote":   "aosp",
+    "repository": "platform/hardware/qcom/camera",
+    "target_path": "hardware/qcom/camera",
+    "revision": "android-6.0.1_r24"
+  }
 ]
+
