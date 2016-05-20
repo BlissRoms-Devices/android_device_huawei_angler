@@ -35,6 +35,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/angler/thermal-engine-angler.conf:system/etc/thermal-engine.conf
 
+
 # Media
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -187,7 +188,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Gello
 PRODUCT_PACKAGES += \
-    Gello
+    Gello \
+    private InputMethodManager mInputManager \
+    package com.android.browser \
+    import android.content.Context \
+    import java.io.File 
 
 # Sensor & activity_recognition HAL
 PRODUCT_PACKAGES += \
@@ -348,9 +353,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable camera EIS
 # eis.enable: enables electronic image stabilization
 # is_type: sets image stabilization type
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.eis.enable=1 \
-    persist.camera.is_type=4
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    persist.camera.eis.enable=1 \
+#    persist.camera.is_type=4
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
