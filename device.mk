@@ -240,7 +240,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196609
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=560
+    ro.sf.lcd_density=560 \
+    persist.sys.lcd_density=530
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=true \
@@ -353,13 +354,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable camera EIS
 # eis.enable: enables electronic image stabilization
 # is_type: sets image stabilization type
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    persist.camera.eis.enable=1 \
-#    persist.camera.is_type=4
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.eis.enable=1 \
+    persist.camera.is_type=4
+
+# Supports Camera new API2
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.camera.HAL3.enabled=1
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
    fs_config_files
+
+# Miracast support
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.wfd.enable=1
 
 # For data
 PRODUCT_PACKAGES += \

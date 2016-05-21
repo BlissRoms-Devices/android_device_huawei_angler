@@ -122,13 +122,6 @@ on boot
     # TapToWake
     chown system system /sys/devices/soc.0/f9924000.i2c/i2c-2/2-0070/input/input0/wake_gesture
 
-    # MDSS PCC RGB colour adjust interface
-    chown system system /sys/devices/virtual/graphics/fb0/rgb
-
-    # Vibrator intensity
-    chown system system /sys/devices/virtual/timed_output/vibrator/vmax_mv_light
-    chown system system /sys/devices/virtual/timed_output/vibrator/vmax_mv_strong
-
 on property:init.svc.per_mgr=running
     start per_proxy
 
@@ -315,6 +308,14 @@ service loc_launcher /system/bin/loc_launcher
    class late_start
    group gps inet net_raw net_admin wifi
 
+# bugreport is triggered by holding down volume down, volume up and power
+service bugreport /system/bin/dumpstate -d -p -B \
+        -o /data/data/com.android.shell/files/bugreports/bugreport
+    class main
+    disabled
+    oneshot
+    keycodes 114 115 116
+
 # start camera server as daemon
 service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
@@ -450,6 +451,12 @@ service msm_irqbalance /system/bin/msm_irqbalance -f /system/etc/msm_irqbalance.
     group root
     writepid /dev/cpuset/system-background/tasks
 
+#start atfwd as daemon
+service atfwd /system/bin/ATFWD-daemon
+    class late_start
+    user system
+    group system radio
+
 service ppd /system/bin/mm-pp-daemon
     class late_start
     user system
@@ -458,3 +465,12 @@ service ppd /system/bin/mm-pp-daemon
 
 on property:init.svc.surfaceflinger=stopped
     stop ppd
+
+service diag_test_server /vendor/bin/diag_test_server
+    class core
+    user root
+    disabled
+
+on property:ro.boot.mode=hw-factory
+    start diag_test_server
+

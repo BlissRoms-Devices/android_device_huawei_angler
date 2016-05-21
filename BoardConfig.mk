@@ -44,6 +44,8 @@ TARGET_TC_KERNEL := 4.9
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(TARGET_TC_KERNEL)
 
 # Inline kernel building
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-$(TARGET_GCC_VERSION_KERNEL)/bin
+KERNEL_TOOLCHAIN_PREFIX := aarch64-
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/huawei/angler
 TARGET_KERNEL_CONFIG := benzo_defconfig
@@ -77,7 +79,6 @@ BOARD_USES_SECURE_SERVICES := true
 BOARD_NEEDS_VENDORIMAGE_SYMLINK := true
 
 TARGET_KEYMASTER_WAIT_FOR_QSEE := true
-
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_INFO_FILE := device/huawei/angler/board-info.txt
@@ -138,6 +139,8 @@ TARGET_USES_INTERACTION_BOOST := true
 # 32-bit or 64-bit), the following line should be deleted
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
+
+WITH_DEXPREOPT := false
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
