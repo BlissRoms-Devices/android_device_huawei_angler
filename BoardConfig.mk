@@ -39,16 +39,16 @@ BLISS_KRAIT := true
 BLISS_PIPE := true
 #BLISS_STRICT := false
 #TARGET_TC_ROM := 4.9
-TARGET_TC_KERNEL := 4.9		
+TARGET_TC_KERNEL := 7.0		
 #TARGET_GCC_VERSION_EXP := $(TARGET_TC_ROM)		
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(TARGET_TC_KERNEL)
 
 # Inline kernel building
-+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
-+KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
-+TARGET_KERNEL_SOURCE := kernel/huawei/angler
-+TARGET_KERNEL_CONFIG := benzo_defconfig
-+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-7.0/bin
+KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
+TARGET_KERNEL_SOURCE := kernel/huawei/angler
+TARGET_KERNEL_CONFIG := benzo_defconfig
+BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
@@ -80,6 +80,15 @@ TARGET_BOARD_INFO_FILE := device/huawei/angler/board-info.txt
 TARGET_NO_RPC := true
 
 BOARD_EGL_CFG := device/huawei/angler/egl.cfg
+
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
@@ -135,7 +144,6 @@ TARGET_USES_INTERACTION_BOOST := true
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
-WITH_DEXPREOPT := false
 
 # Wifi related defines
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
