@@ -66,6 +66,10 @@ PRODUCT_COPY_FILES += \
 #PRODUCT_PACKAGES += \
 #    AnglerLayout
 
+# Gello
+ PRODUCT_PACKAGES += \
+     Gello
+
 # Delegation for OEM customization
 PRODUCT_OEM_PROPERTIES := \
     ro.config.ringtone \
