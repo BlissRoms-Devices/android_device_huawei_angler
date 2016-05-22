@@ -8,7 +8,8 @@
  {
    "remote": "github",
    "repository":   "BlissRoms-Kernels/vendor_huawei_angler",
-   "target_path": "vendor/huawei",                                                                      "revision": "mm6.0"
+   "target_path": "vendor/huawei",                                     
+   "revision": "mm6.0"
  }
 ]
 
