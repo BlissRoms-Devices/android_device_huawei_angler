@@ -39,12 +39,12 @@ BLISS_KRAIT := true
 BLISS_PIPE := true
 #BLISS_STRICT := false
 #TARGET_TC_ROM := 4.9
-TARGET_TC_KERNEL := 7.0		
+TARGET_TC_KERNEL := 4.9	
 #TARGET_GCC_VERSION_EXP := $(TARGET_TC_ROM)		
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(TARGET_TC_KERNEL)
 
 # Inline kernel building
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-7.0/bin
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
 KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_SOURCE := kernel/huawei/angler
 TARGET_KERNEL_CONFIG := benzo_defconfig
