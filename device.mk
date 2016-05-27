@@ -35,7 +35,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/huawei/angler/thermal-engine-angler.conf:system/etc/thermal-engine.conf
 
-
 # Media
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -65,10 +64,6 @@ PRODUCT_COPY_FILES += \
 # for launcher layout
 #PRODUCT_PACKAGES += \
 #    AnglerLayout
-
-# Gello
- PRODUCT_PACKAGES += \
-     Gello
 
 # Delegation for OEM customization
 PRODUCT_OEM_PROPERTIES := \
@@ -192,11 +187,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Gello
 PRODUCT_PACKAGES += \
-    Gello \
-    private InputMethodManager mInputManager \
-    package com.android.browser \
-    import android.content.Context \
-    import java.io.File 
+    Gello
 
 # Sensor & activity_recognition HAL
 PRODUCT_PACKAGES += \
@@ -245,7 +236,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=560 \
-    persist.sys.lcd_density=530
+    persist.sys.lcd_density=527
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=true \
@@ -362,17 +353,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.eis.enable=1 \
     persist.camera.is_type=4
 
-# Supports Camera new API2
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.camera.HAL3.enabled=1
-
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
    fs_config_files
-
-# Miracast support
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.debug.wfd.enable=1
 
 # For data
 PRODUCT_PACKAGES += \
@@ -410,6 +393,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Dalvik/HWUI
 $(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
 # drmservice prop
 PRODUCT_PROPERTY_OVERRIDES += \
