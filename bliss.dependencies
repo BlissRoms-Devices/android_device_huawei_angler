@@ -7,7 +7,7 @@
  },
  {
    "remote": "github",
-   "repository":   "BrokenRom/vendor_huawei",
+   "repository":   "BrokenROM/vendor_huawei",
    "target_path": "vendor/huawei",                                     
    "revision": "m6.0.1"
  }
