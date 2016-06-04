@@ -7,9 +7,9 @@
  },
  {
    "remote": "github",
-   "repository":   "BrokenROM/vendor_huawei",
+   "repository":   "BlissRoms-Kernels/vendor_huawe",
    "target_path": "vendor/huawei",                                     
-   "revision": "m6.0.1"
+   "revision": "mm6.0"
  }
 ]
 
