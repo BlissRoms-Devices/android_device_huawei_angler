@@ -7,9 +7,9 @@
  },
  {
    "remote": "github",
-   "repository":   "BlissRoms-Kernels/vendor_huawei_angler",
+   "repository":   "TheMuppets/proprietary_vendor_huawei",
    "target_path": "vendor/huawei",                                     
-   "revision": "marshmallow"
+   "revision": "cm-13.0"
  }
 ]
 
