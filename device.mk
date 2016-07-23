@@ -326,7 +326,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #for qcom modify fluence type name, here added and enable
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.fluencetype="fluence" \
-    persist.audio.fluence.voicecall=true \
+    persist.audio.fluence.voicecall=false \
     persist.audio.fluence.voicecomm=true \
     persist.audio.product.identify="angler" \
     persist.audio.fluence.speaker=true
