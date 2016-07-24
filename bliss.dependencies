@@ -7,9 +7,9 @@
  },
  {
    "remote": "github",
-   "repository":   "drgroovestarr/vendor_huawei",
+   "repository":   "blueyes27/vendor_huawei",
    "target_path": "vendor/huawei",                                     
-   "revision": "m6.0.1"
+   "revision": "mm6.0"
  }
 ]
 
