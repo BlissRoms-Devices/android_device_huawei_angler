@@ -1,9 +1,9 @@
 [
  {
    "remote":   "github",
-   "repository":  "drgroovestarr/kylo_kernel_angler",
+   "repository":  "BlissRoms-Kernels/android_kernel_huawei_angler",
    "target_path": "kernel/huawei/angler",
-   "revision": "m6.0.1"
+   "revision": "mm6.0"
  },
  {
    "remote": "github",
