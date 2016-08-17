@@ -93,6 +93,7 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 # Enable dex-preoptimization to speed up first boot sequence
 WITH_DEXPREOPT := true
+DONT_DEXPREOPT_PREBUILTS := true
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
