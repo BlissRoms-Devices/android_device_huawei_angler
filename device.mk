@@ -19,15 +19,23 @@
 #
 # Everything in this directory will become public
 
+# Enable support for chinook sensorhub
+TARGET_USES_CHINOOK_SENSORHUB := false
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.rc:root/init.angler.rc \
-    device/huawei/angler/init.angler.sensorhub.rc:root/init.angler.sensorhub.rc \
     device/huawei/angler/init.angler.usb.rc:root/init.angler.usb.rc \
     device/huawei/angler/fstab.angler:root/fstab.angler \
     device/huawei/angler/ueventd.angler.rc:root/ueventd.angler.rc \
     device/huawei/angler/init.angler.power.sh:system/bin/init.angler.power.sh
 
+ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/init.angler.sensorhub.rc:root/init.angler.sensorhub.rc
+else
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/init.angler.nanohub.rc:root/init.angler.sensorhub.rc
+endif
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.mcfg.sh:system/bin/init.mcfg.sh
@@ -53,8 +61,13 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/audio_platform_info_i2s.xml:system/etc/audio_platform_info_i2s.xml \
     device/huawei/angler/sound_trigger_mixer_paths.xml:system/etc/sound_trigger_mixer_paths.xml \
     device/huawei/angler/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
-    device/huawei/angler/audio_policy.conf:system/etc/audio_policy.conf \
     device/huawei/angler/audio_platform_info.xml:system/etc/audio_platform_info.xml \
+    device/huawei/angler/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml \
+    device/huawei/angler/audio_policy_volumes_drc.xml:system/etc/audio_policy_volumes_drc.xml \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/etc/default_volume_tables.xml \
 
 # Input device files
 PRODUCT_COPY_FILES += \
@@ -65,6 +78,10 @@ PRODUCT_COPY_FILES += \
 # for launcher layout
 PRODUCT_PACKAGES += \
     AnglerLayout
+
+# include fingerprintd
+PRODUCT_PACKAGES += \
+    fingerprintd
 
 # Delegation for OEM customization
 PRODUCT_OEM_PROPERTIES := \
@@ -77,7 +94,7 @@ PRODUCT_OEM_PROPERTIES := \
     oem.*
 
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/sec_config:system/etc/sec_config
+    device/huawei/angler/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -115,15 +132,24 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.nfc.hce.xml:system/etc/permissions/android.hardware.nfc.hce.xml \
+    frameworks/native/data/etc/android.hardware.nfc.hcef.xml:system/etc/permissions/android.hardware.nfc.hcef.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/android.software.verified_boot.xml:system/etc/permissions/android.software.verified_boot.xml \
-    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
+    frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml \
+    frameworks/native/data/etc/android.hardware.vr.high_performance.xml:system/etc/permissions/android.hardware.vr.high_performance.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.level-0.xml:system/etc/permissions/android.hardware.vulkan.level.xml \
+    frameworks/native/data/etc/android.hardware.vulkan.version-1_0_3.xml:system/etc/permissions/android.hardware.vulkan.version.xml
 
 
 # MSM IRQ Balancer configuration file
 PRODUCT_COPY_FILES += \
-    device/huawei/angler/msm_irqbalance.conf:system/etc/msm_irqbalance.conf
+    device/huawei/angler/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
+
+# Qseecomd configuration file
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/init.angler.qseecomd.sh:system/bin/init.angler.qseecomd.sh
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
@@ -145,6 +171,7 @@ PRODUCT_PACKAGES += \
     memtrack.msm8994 \
     lights.angler
 
+USE_XML_AUDIO_POLICY_CONF := 1
 PRODUCT_PACKAGES += \
     audio.primary.msm8994 \
     audio.a2dp.default \
@@ -169,7 +196,7 @@ PRODUCT_PACKAGES += \
     libOmxVdecHevc \
     libOmxVenc
 
-# CAMERA
+#CAMERA
 PRODUCT_PACKAGES += \
     camera.msm8994 \
     libcamera \
@@ -179,12 +206,37 @@ PRODUCT_PACKAGES += \
     libqomx_core \
     mm-qcamera-app
 
+# GPS
+PRODUCT_PACKAGES += \
+    libgps.utils \
+    gps.msm8994
+
 # Sensor & activity_recognition HAL
+TARGET_USES_NANOHUB_SENSORHAL := true
+NANOHUB_SENSORHAL_LID_STATE_ENABLED := true
+NANOHUB_SENSORHAL_USB_MAG_BIAS_ENABLED := true
+NANOHUB_SENSORHAL_SENSORLIST := $(LOCAL_PATH)/sensorhal/sensorlist.cpp
+
 PRODUCT_PACKAGES += \
     sensors.angler \
     activity_recognition.angler \
+    context_hub.default
+
+ifeq ($(TARGET_USES_CHINOOK_SENSORHUB),true)
+PRODUCT_PACKAGES += \
     sensortool.angler \
     nano4x1.bin
+else
+PRODUCT_PACKAGES += \
+    nanoapp_cmd
+endif
+
+# sensor utilities (only for userdebug and eng builds)
+ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+PRODUCT_PACKAGES += \
+    nanotool \
+    sensortest
+endif
 
 # for off charging mode
 PRODUCT_PACKAGES += \
@@ -193,7 +245,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
-    dhcpcd.conf \
     wlutil \
     wpa_supplicant \
     wpa_supplicant.conf
@@ -208,7 +259,8 @@ PRODUCT_PACKAGES += \
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    power.angler
+    power.angler \
+    thermal.angler
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/nfc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
@@ -218,7 +270,7 @@ DEVICE_PACKAGE_OVERLAYS := \
     device/huawei/angler/overlay
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=196609
+    ro.opengles.version=196610
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=560
@@ -232,6 +284,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.data_con_rprt=true
+
+# VR HAL
+PRODUCT_PACKAGES += \
+    vr.angler
 
 # Enable low power video mode for 4K encode
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -247,7 +303,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_cdma_sub=0
@@ -345,13 +401,15 @@ PRODUCT_PACKAGES += \
 # limit dex2oat threads to improve thermals
 PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.boot-dex2oat-threads=4 \
-    dalvik.vm.dex2oat-threads=2 \
+    dalvik.vm.dex2oat-threads=4 \
     dalvik.vm.image-dex2oat-threads=4
 
 # Modem debugger
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ifeq (,$(filter aosp_angler, $(TARGET_PRODUCT)))
 PRODUCT_PACKAGES += \
     QXDMLogger
+endif # aosp_angler
 
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.userdebug:root/init.angler.diag.rc
@@ -359,22 +417,52 @@ PRODUCT_COPY_FILES += \
 # subsystem ramdump collection
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.ssr.enable_ramdumps=1
-else
+else # userdebug eng
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.diag.rc.user:root/init.angler.diag.rc
-endif
+endif # userdebug eng
 
 # Incoming number (b/23529711)
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.redir_party_num=0
 
+# OEM Unlock reporting
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.oem_unlock_supported=1
+
+# In userdebug, add minidebug info the the boot image and the system server to support
+# diagnosing native crashes.
+ifneq (,$(filter userdebug, $(TARGET_BUILD_VARIANT)))
+    # Boot image.
+    PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
+    # System server and some of its services.
+    # Note: we cannot use PRODUCT_SYSTEM_SERVER_JARS, as it has not been expanded at this point.
+    $(call add-product-dex-preopt-module-config,services,--generate-mini-debug-info)
+    $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
+endif
+
 # Dalvik/HWUI
 $(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
+$(call inherit-product-if-exists, hardware/qcom/msm8994/msm8994.mk)
+$(call inherit-product-if-exists, vendor/qcom/gpu/msm8994/msm8994-gpu-vendor.mk)
+
+# copy wlan firmware
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358/device-bcm.mk)
+
+# GPS configuration
+PRODUCT_COPY_FILES += \
+    device/huawei/angler/location/etc/gps.conf:system/etc/gps.conf:qcom
+
 # drmservice prop
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.usb.config=mtp,adb \
+    ro.adb.secure=0 \
+    ro.du.updater=angler
 
 # facelock properties
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -384,14 +472,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.facelock.lively_timeout=2500 \
     ro.facelock.est_max_time=600 \
     ro.facelock.use_intro_anim=false
-
-$(call inherit-product-if-exists, hardware/qcom/msm8994/msm8994.mk)
-$(call inherit-product-if-exists, vendor/qcom/gpu/msm8994/msm8994-gpu-vendor.mk)
-
-# copy wlan firmware
-$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4358/device-bcm.mk)
-
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp,adb \
-    ro.adb.secure=0 \
-    ro.du.updater=angler

@@ -1,4 +1,4 @@
-type thermald, domain;
+type thermald, domain, domain_deprecated;
 type thermald_exec, exec_type, file_type;
 
 init_daemon_domain(thermald)
@@ -15,6 +15,8 @@ allow thermald sysfs_thermal:file rw_file_perms;
 
 allow thermald sysfs_msm_subsys:dir r_dir_perms;
 allow thermald sysfs_msm_subsys:lnk_file rw_file_perms;
+
+allow thermald sysfs_thermal:file write;
 
 # Grant access to Qualcomm MSM Interface (QMI) radio sockets to system services
 # (e.g., LocationManager)
