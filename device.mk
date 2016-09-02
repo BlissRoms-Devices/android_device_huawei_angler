@@ -19,6 +19,9 @@
 #
 # Everything in this directory will become public
 
+#V4A
+BLISS_AUDIO_MOD := viper
+
 PRODUCT_COPY_FILES += \
     device/huawei/angler/init.angler.rc:root/init.angler.rc \
     device/huawei/angler/init.angler.sensorhub.rc:root/init.angler.sensorhub.rc \
@@ -64,6 +67,10 @@ PRODUCT_COPY_FILES += \
 # for launcher layout
 #PRODUCT_PACKAGES += \
 #    AnglerLayout
+
+# include fingerprintd
+PRODUCT_PACKAGES += \
+    fingerprintd
 
 # Delegation for OEM customization
 PRODUCT_OEM_PROPERTIES := \
@@ -151,6 +158,11 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     libaudio-resampler \
     dsm_ctrl
+
+# GPS
+PRODUCT_PACKAGES += \
+    libgps.utils \
+    gps.msm8994
 
 # Audio effects
 PRODUCT_PACKAGES += \
@@ -263,9 +275,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so
-
+    
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
+    rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_cdma_sub=0
