@@ -30,7 +30,7 @@ PRODUCT_BRAND := Android
 PRODUCT_MODEL := AOSP on angler
 PRODUCT_MANUFACTURER := Huawei
 PRODUCT_RESTRICT_VENDOR_FILES := false
-
+PRODUCT_PACKAGES += AOSPLinks 
 PRODUCT_COPY_FILES += device/huawei/angler/fstab.aosp_angler:root/fstab.angler
 
 $(call inherit-product, device/huawei/angler/device.mk)
