@@ -2,12 +2,12 @@
   {
     "repository":   "DirtyUnicorns/android_kernel_huawei_angler",
     "target_path":  "kernel/huawei/angler",
-    "revision":       "m"
+    "revision":       "n7.0"
   },
   {
     "repository":  "DirtyUnicorns/android_vendor_huawei",
     "target_path": "vendor/huawei",
-    "revision":      "m"
+    "revision":      "n7.0"
   }
 ]
 
