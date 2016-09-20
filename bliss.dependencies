@@ -1,13 +1,13 @@
 [
   {
     "remote":       "github",
-    "repository":   "DirtyUnicorns/android_kernel_huawei_angler",
+    "repository":   "blueyes27/android_kernel_huawei_angler",
     "target_path":  "kernel/huawei/angler",
     "revision":       "n"
   },
   {
     "remote":      "github",
-    "repository":  "DirtyUnicorns/android_vendor_huawei",
+    "repository":  "blueyes27/android_vendor_huawei",
     "target_path": "vendor/huawei",
     "revision":      "n"
   }
