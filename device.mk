@@ -150,10 +150,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# AOSP vendor links
-PRODUCT_PACKAGES += \
-    AOSPLinks
-
 # This device is 560dpi.  However the platform doesn't
 # currently contain all of the bitmaps at 560dpi density so
 # we do this little trick to fall back to the xxhdpi version
