@@ -311,6 +311,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_cdma_sub=0
 
+# Mobile Data provision prop
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.com.android.prov_mobiledata=false
+
 # LTE, CDMA, GSM/WCDMA
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_network=10 \
