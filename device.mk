@@ -71,8 +71,8 @@ PRODUCT_COPY_FILES += \
     device/huawei/angler/synaptics_dsx.idc:system/usr/idc/synaptics_dsx.idc
 
 # for launcher layout
-PRODUCT_PACKAGES += \
-    AnglerLayout
+#PRODUCT_PACKAGES += \
+#    AnglerLayout
 
 # include fingerprintd
 PRODUCT_PACKAGES += \
@@ -450,6 +450,10 @@ ifneq (,$(filter userdebug, $(TARGET_BUILD_VARIANT)))
     $(call add-product-dex-preopt-module-config,services,--generate-mini-debug-info)
     $(call add-product-dex-preopt-module-config,wifi-service,--generate-mini-debug-info)
 endif
+
+# old-apns.conf
+PRODUCT_COPY_FILES += \
+device/huawei/angler/old-apns-conf.xml:system/etc/old-apns-conf.xml
 
 # Dalvik/HWUI
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
