@@ -1,15 +1,15 @@
 [
   {
     "remote":       "github",
-    "repository":   "blueyes27/android_kernel_huawei_angler",
+    "repository":   "blueyes27/kernel_huawei_angler",
     "target_path":  "kernel/huawei/angler",
-    "revision":       "n"
+    "revision":       "nougat"
   },
   {
     "remote":      "github",
-    "repository":  "blueyes27/android_vendor_huawei",
+    "repository":  "blueyes27/vendor_huawei_angler",
     "target_path": "vendor/huawei",
-    "revision":      "n"
+    "revision":      "nougat"
   }
 ]
 
