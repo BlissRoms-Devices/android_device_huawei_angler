@@ -7,9 +7,9 @@
   },
   {
     "remote":      "github",
-    "repository":  "blueyes27/vendor_huawei_angler",
+    "repository":  "PureNexusProject/proprietary_vendor_huawei",
     "target_path": "vendor/huawei",
-    "revision":      "nougat"
+    "revision":      "n"
   }
 ]
 
