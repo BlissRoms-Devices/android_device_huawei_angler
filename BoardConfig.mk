@@ -120,8 +120,15 @@ BOARD_SEPOLICY_DIRS += \
 
 TARGET_USES_64_BIT_BINDER := true
 
-# Lets odex
-WITH_DEXPREOPT := true 
+# Enable dex-preoptimization to speed up first boot sequence
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+    endif
+  endif
+endif
+
 DONT_DEXPREOPT_PREBUILTS := true
 
 TARGET_USES_AOSP := true
@@ -150,7 +157,7 @@ BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 # Testing related defines
 BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/angler-setup.sh
 
-# USE_CLANG_PLATFORM_BUILD := true
+USE_CLANG_PLATFORM_BUILD := true
 
 # Enable workaround for slow rom flash
 BOARD_SUPPRESS_SECURE_ERASE := true
