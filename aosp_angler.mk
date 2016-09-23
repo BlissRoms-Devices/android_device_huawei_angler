@@ -32,7 +32,6 @@ PRODUCT_MANUFACTURER := Huawei
 # PRODUCT_RESTRICT_VENDOR_FILES := true
 
 PRODUCT_COPY_FILES += device/huawei/angler/fstab.aosp_angler:root/fstab.angler
-PRODUCT_RESTRICT_VENDOR_FILES := owner path
 
 
 $(call inherit-product, device/huawei/angler/device.mk)
