@@ -108,8 +108,8 @@ BOARD_SEPOLICY_DIRS += \
 
 TARGET_USES_64_BIT_BINDER := true
 
-# Lets NOT odex
-WITH_DEXPREOPT := false 
+# Lets odex
+WITH_DEXPREOPT := true 
 DONT_DEXPREOPT_PREBUILTS := true
 
 TARGET_USES_AOSP := true
