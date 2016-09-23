@@ -1,0 +1,15 @@
+[
+  {
+    "remote":       "github",
+    "repository":   "Elite-Kernels/elite_angler",
+    "target_path":  "kernel/huawei/angler",
+    "revision":       "Elite-N-merged"
+  },
+  {
+    "remote":      "github",
+    "repository":  "PureNexusProject/proprietary_vendor_huawei",
+    "target_path": "vendor/huawei",
+    "revision":      "n"
+  }
+]
+
