@@ -1,9 +1,9 @@
 [
   {
     "remote":       "github",
-    "repository":   "blueyes27/kernel_huawei_angler",
+    "repository":   "Elite-Kernels/elite_angler",
     "target_path":  "kernel/huawei/angler",
-    "revision":       "nougat"
+    "revision":       "Elite-N-merged"
   },
   {
     "remote":      "github",
