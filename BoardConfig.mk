@@ -45,7 +45,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $
 # Inline Kernel
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-$(TARGET_GCC_VERSION_KERNEL)/bin
 KERNEL_TOOLCHAIN_PREFIX := aarch64-
-TARGET_KERNEL_CONFIG := angler_defconfig
+TARGET_KERNEL_CONFIG := benzo_defconfig
 TARGET_KERNEL_SOURCE := kernel/huawei/angler
 
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
