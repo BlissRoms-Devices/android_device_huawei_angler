@@ -159,6 +159,10 @@ BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/angler-setup.sh
 
 USE_CLANG_PLATFORM_BUILD := true
 
+ifeq ($(USE_SVELTE_KERNEL),true)
+MALLOC_SVELTE := true
+endif
+
 # Enable workaround for slow rom flash
 BOARD_SUPPRESS_SECURE_ERASE := true
 
