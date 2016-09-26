@@ -23,8 +23,8 @@ TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := cortex-a53
 
-# CLANG_O3 := true
-# STRICT_ALIASING := true
+CLANG_O3 := true
+STRICT_ALIASING := true
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv7-a-neon
