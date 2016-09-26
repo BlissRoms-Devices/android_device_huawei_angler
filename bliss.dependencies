@@ -7,9 +7,9 @@
   },
   {
     "remote":      "github",
-    "repository":  "PureNexusProject/proprietary_vendor_huawei",
+    "repository":  "UBERROMS/vendor_huawei",
     "target_path": "vendor/huawei",
-    "revision":      "n"
+    "revision":      "master"
   }
 ]
 
