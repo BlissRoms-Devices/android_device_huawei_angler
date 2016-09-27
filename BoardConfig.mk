@@ -139,7 +139,7 @@ USE_CLANG_PLATFORM_BUILD := true
 
 -include vendor/huawei/angler/BoardConfigVendor.mk
 
-BOARD_NEEDS_VENDORIMAGE_SYMLINK := true
+BOARD_NEEDS_VENDORIMAGE_SYMLINK := false
 
 # BLISS options
 TARGET_TC_ROM := 4.9-sm
