@@ -10,6 +10,18 @@
     "repository":  "electrikjesus/proprietary_vendor_huawei",
     "target_path": "vendor/huawei",
     "revision":      "n7.0"
+  },
+  {
+    "remote":      "bitbucket",
+    "repository":  "xanaxdroid/aarch64-linux-android-4.9",
+    "target_path": "prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9-sm",
+    "revision":      "sabermod"
+  },
+  {
+    "remote":      "bitbucket",
+    "repository":  "xanaxdroid/aarch64-4.9",
+    "target_path": "prebuilts/gcc/linux-x86/aarch64/aarch64-4.9-sm",
+    "revision":      "sabermod"
   }
 ]
 
