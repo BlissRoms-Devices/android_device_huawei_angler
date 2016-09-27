@@ -7,9 +7,9 @@
   },
   {
     "remote":      "github",
-    "repository":  "AICP/proprietary_vendor_huawei",
+    "repository":  "electrikjesus/proprietary_vendor_huawei",
     "target_path": "vendor/huawei",
     "revision":      "n7.0"
-}
+  }
 ]
 
