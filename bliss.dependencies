@@ -3,13 +3,13 @@
     "remote":       "github",
     "repository":   "BlissRoms-Kernels/android_kernel_huawei_angler",
     "target_path":  "kernel/huawei/angler",
-    "revision":      "n7.0""
+    "revision":       "n7.0"
   },
   {
     "remote":      "github",
     "repository":  "BlissRoms-Vendor/vendor_huawei_angler",
     "target_path": "vendor/huawei",
-    "revision":     "n7.0"
+    "revision":      "n7.0"
   }
 ]
 
