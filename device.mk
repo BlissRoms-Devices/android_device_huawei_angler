@@ -287,7 +287,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196610
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=560
+    ro.sf.lcd_density=520
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.hwc.mdpcomp.enable=true \
@@ -446,10 +446,10 @@ ifneq (,$(filter userdebug, $(TARGET_BUILD_VARIANT)))
 endif
 
 # configure the HWUI memory limits
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
+$(call inherit-product-if-exist, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
 
 # setup dalvik vm configs.
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
+$(call inherit-product-if-exist, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
 
 # facelock properties
 PRODUCT_PROPERTY_OVERRIDES += \

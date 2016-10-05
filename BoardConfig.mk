@@ -142,7 +142,7 @@ USE_CLANG_PLATFORM_BUILD := true
 # Inline kernel building
 #TARGET_GCC_VERSION_ARM64 := 4.9
 TARGET_KERNEL_SOURCE := kernel/huawei/angler
-TARGET_KERNEL_CONFIG := bliss_defconfig
+TARGET_KERNEL_CONFIG := megatron_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 #KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
 KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
