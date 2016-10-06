@@ -16,9 +16,6 @@
 
 TARGET_BOARD_PLATFORM := msm8994
 TARGET_BOOTLOADER_BOARD_NAME := angler
-SDCLANG := true
-
-SDCLANG_PATH := prebuilts/clang/linux-x86/host/sdclang-3.8/bin
 
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -138,7 +135,10 @@ BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
 # Testing related defines
 BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/angler-setup.sh
 
+# We use Clang 3.8 Designed for Snapdragon
 USE_CLANG_PLATFORM_BUILD := true
+SDCLANG := true
+SDCLANG_PATH := prebuilts/clang/linux-x86/host/sdclang-3.8/bin
 
 -include vendor/huawei/angler/BoardConfigVendor.mk
 
@@ -146,7 +146,6 @@ USE_CLANG_PLATFORM_BUILD := true
 #TARGET_GCC_VERSION_ARM64 := 4.9
 TARGET_KERNEL_SOURCE := kernel/huawei/angler
 TARGET_KERNEL_CONFIG := megatron_defconfig
-TARGET_KERNEL_CONFIG := kylo_defconfig
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 #KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/aarch64/aarch64-linux-android-4.9/bin
 KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
@@ -164,3 +163,5 @@ KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
 #TARGET_GCC_VERSION_EXP := $(TARGET_TC_ROM)		
 #TARGET_KERNEL_CUSTOM_TOOLCHAIN := $(TARGET_TC_KERNEL)
 
+# Needed for some of our HAL
+TARGET_COMPILE_WITH_MSM_KERNEL := true
