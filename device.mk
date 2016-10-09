@@ -460,6 +460,12 @@ ro.facelock.lively_timeout=2500 \
 ro.facelock.est_max_time=600 \
 ro.facelock.use_intro_anim=false
 
+# WiFi calling
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.data.iwlan.enable=true \
+    persist.radio.ignore_ims_wlan=1 \
+    persist.radio.data_con_rprt=1
+
 # drmservice prop
 PRODUCT_PROPERTY_OVERRIDES += \
     drm.service.enabled=true
