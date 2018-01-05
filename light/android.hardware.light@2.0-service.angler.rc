@@ -22,6 +22,7 @@ on early-boot
     chmod 664 /sys/devices/soc.0/fd900000.qcom,mdss_mdp/qcom,mdss_fb_primary.182/leds/lcd-backlight/max_brightness
 
 service vendor.light-hal-2-0 /vendor/bin/hw/android.hardware.light@2.0-service.angler
+    interface android.hardware.light@2.0::ILight default
     class hal
     user system
     group system
