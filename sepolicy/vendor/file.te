@@ -63,3 +63,5 @@ type sysfs_enable_edl, fs_type, sysfs_type;
 type sysfs_qpnp_26, fs_type, sysfs_type;
 # ram dumps
 type sysfs_ramdumps, fs_type, sysfs_type;
+
+type mediadrm_vendor_data_file,  file_type, data_file_type;
