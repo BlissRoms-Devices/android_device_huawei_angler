@@ -184,6 +184,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/synaptics_dsx.idc:$(TARGET_COPY_OUT_SYSTEM)/usr/idc/synaptics_dsx.idc \
     $(LOCAL_PATH)/configs/uinput-fpc.idc:$(TARGET_COPY_OUT_SYSTEM)/usr/idc/uinput-fpc.idc
 
+# libprotobuf
+PRODUCT_PACKAGES += \
+    libprotobuf_shim
+
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_codecs.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/media_codecs.xml \
