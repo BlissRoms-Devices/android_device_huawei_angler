@@ -175,9 +175,6 @@ TARGET_LD_SHIM_LIBS := \
     /system/vendor/lib64/libril-qc-qmi-1.so|libaudioclient_shim.so \
     /system/vendor/lib64/mediadrm/libwvdrmengine.so|libprotobuf_shim.so
 
-# HIDL
-PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
-
 # Testing related defines
 BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/angler-setup.sh
 
