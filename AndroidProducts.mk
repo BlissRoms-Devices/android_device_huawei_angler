@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/havoc_angler.mk
+    $(LOCAL_DIR)/bliss_angler.mk
