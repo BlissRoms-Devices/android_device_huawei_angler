@@ -47,7 +47,6 @@ endif
 LOCAL_CFLAGS += -DDEFAULT_DENOISE_MODE_ON -DHAL3
 
 LOCAL_C_INCLUDES := \
-        $(LOCAL_PATH)/stack/common \
         frameworks/native/include/media/hardware \
         frameworks/native/include/media/openmax \
         hardware/qcom/media/msm8974/libstagefrighthw \
@@ -62,6 +61,7 @@ LOCAL_C_INCLUDES += \
         device/huawei/angler/camera/QCamera2/HAL
 
 LOCAL_HEADER_LIBRARIES := generated_kernel_headers
+LOCAL_HEADER_LIBRARIES += camera_common_headers
 
 #LOCAL_STATIC_LIBRARIES := libqcamera2_util
 LOCAL_C_INCLUDES += \
@@ -82,5 +82,10 @@ LOCAL_VENDOR_MODULE := true
 
 LOCAL_32_BIT_ONLY := $(BOARD_QTI_CAMERA_32BIT_ONLY)
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := camera_common_headers
+LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/stack/common
+include $(BUILD_HEADER_LIBRARY)
 
 include $(call first-makefiles-under,$(LOCAL_PATH))
