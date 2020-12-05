@@ -339,10 +339,6 @@ endif
 # Utils
 $(call inherit-product, $(LOCAL_PATH)/utils.mk)
 
-# VNDK-SP
-PRODUCT_PACKAGES += \
-    vndk-sp
-
 # TimeKeep
 PRODUCT_PACKAGES += \
     timekeep \
