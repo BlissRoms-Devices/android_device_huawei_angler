@@ -339,6 +339,9 @@ endif
 # Utils
 $(call inherit-product, $(LOCAL_PATH)/utils.mk)
 
+# VNDK
+PRODUCT_EXTRA_VNDK_VERSIONS := 29
+
 # TimeKeep
 PRODUCT_PACKAGES += \
     timekeep \
