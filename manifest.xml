@@ -16,6 +16,15 @@
             <name>IEffectsFactory</name>
             <instance>default</instance>
         </interface>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.bluetooth</name>
+        <transport arch="32+64">passthrough</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IBluetoothHci</name>
+            <instance>default</instance>
+        </interface>
     </hal>   
     <hal format="hidl">
         <name>android.hardware.camera.provider</name>
