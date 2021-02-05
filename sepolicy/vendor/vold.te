@@ -2,3 +2,5 @@
 dontaudit vold proc_irq:dir read;
 
 get_prop(vold, vendor_tee_listener_prop)
+
+allow vold hal_bootctl_hwservice:hwservice_manager find;
