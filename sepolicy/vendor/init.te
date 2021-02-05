@@ -53,3 +53,5 @@ allow init vendor_file:file { execute_no_trans };
 
 allow init perfd_data_file:sock_file { write };
 allow init perfd:unix_stream_socket { connectto };
+
+allow init servicemanager:binder { call transfer };
