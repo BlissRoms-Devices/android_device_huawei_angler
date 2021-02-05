@@ -1,4 +1,4 @@
-allow logpersist logpersist:capability { sys_admin dac_override }
-allow logpersist cache_file:dir { read open write add_name }
-allow logpersist cache_file:file { create ioctl getattr }
-allow logpersist cache_file:file { append open }
+allow logpersist logpersist:capability { sys_admin dac_override };
+allow logpersist cache_file:dir { read open write add_name };
+allow logpersist cache_file:file { create ioctl getattr };
+allow logpersist cache_file:file { append open };
