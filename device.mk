@@ -309,8 +309,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libaudioclient_shim \
     libion \
-    librmnetctl \
-    libxml2
+    libxml2 \
     libprotobuf-cpp-full \
     libprotobuf-cpp-full.vendor \
     libprotobuf-cpp-lite \
