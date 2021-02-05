@@ -1,2 +1,4 @@
 # this goes in the neverallows domain
 dontaudit usbd self:capability dac_override;
+
+allow usbd usbd:capability { sys_admin };
