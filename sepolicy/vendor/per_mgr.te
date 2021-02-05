@@ -1,1 +1,2 @@
 allow per_mgr device:file { open write };
+allow per_mgr per_mgr:capability { sys_admin };
