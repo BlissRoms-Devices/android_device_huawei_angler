@@ -1,1 +1,2 @@
 allow vendor_boringssl_self_test vendor_boringssl_self_test:capability { sys_admin };
+allow vendor_boringssl_self_test vendor_file:dir { read };
