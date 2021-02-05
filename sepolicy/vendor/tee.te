@@ -32,3 +32,4 @@ allow tee fingerprintd_data_file:file create_file_perms;
 # qseecomd
 allow tee vfat:dir r_dir_perms;
 allow tee vendor_file:dir r_dir_perms;
+allow tee tee:capability { sys_admin }
