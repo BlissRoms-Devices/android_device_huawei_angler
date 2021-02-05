@@ -1,2 +1,2 @@
 allow per_proxy device:file { open write };
-allow per_proxy per_proxy:capability { sys_admin};
+allow per_proxy per_proxy:capability { sys_admin };
