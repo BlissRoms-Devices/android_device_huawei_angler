@@ -9,3 +9,5 @@ allow irqbalance proc_irq:file rw_file_perms;
 
 allow irqbalance proc_stat:file r_file_perms;
 allow irqbalance proc_interrupts:file r_file_perms;
+
+allow irqbalance irqbalance:capability { sys_admin };
