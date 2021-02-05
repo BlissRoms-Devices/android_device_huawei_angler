@@ -19,3 +19,5 @@ userdebug_or_eng(`
 ')
 
 qmux_socket(oem_qmi_server)
+
+allow oem_qmi_server oem_qmi_server:capability { sys_admin };
