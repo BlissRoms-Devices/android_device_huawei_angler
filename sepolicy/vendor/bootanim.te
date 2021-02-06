@@ -1,2 +1,2 @@
 allow bootanim system_data_file:dir r_dir_perms;
-allow bootanim userspace_reboot_exported_prop:file { read open geattr };
+allow bootanim userspace_reboot_exported_prop:file { read open getattr };

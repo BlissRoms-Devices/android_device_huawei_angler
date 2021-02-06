@@ -12,4 +12,4 @@ allow init-angler-qseecomd-sh vendor_file:dir read;
 
 get_prop(init-angler-qseecomd-sh, vendor_tee_listener_prop)
 
-allow init-angler-qseecomd-sh init-angler-qseecomd-sh:capability { sys_admin }
+allow init-angler-qseecomd-sh init-angler-qseecomd-sh:capability { sys_admin };

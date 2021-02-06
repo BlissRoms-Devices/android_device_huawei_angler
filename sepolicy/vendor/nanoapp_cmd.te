@@ -8,4 +8,4 @@ allow nanoapp_cmd sysfs_nanoapp_cmd:dir search;
 allow nanoapp_cmd sysfs_nanoapp_cmd:file rw_file_perms;
 allow nanoapp_cmd vendor_file:dir read;
 
-allow nanoapp_cmd nanoapp_cmd:capability { sys_admin }
+allow nanoapp_cmd nanoapp_cmd:capability { sys_admin };
