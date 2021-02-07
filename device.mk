@@ -131,19 +131,6 @@ PRODUCT_PACKAGES += \
 # HIDL
 $(call inherit-product, $(LOCAL_PATH)/hidl.mk)
 
-# IMS
-PRODUCT_PACKAGES += \
-    telephony-ext \
-    ims-ext-common \
-    ims_ext_common.xml \
-    qti-telephony-hidl-wrapper \
-    qti_telephony_hidl_wrapper.xml \
-    qti-telephony-utils \
-    qti_telephony_utils.xml
-
-PRODUCT_BOOT_JARS += \
-    telephony-ext
-
 # Init
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.angler.rc:root/init.angler.rc \
